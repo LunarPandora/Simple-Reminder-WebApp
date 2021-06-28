@@ -7,7 +7,7 @@
     $task = $_POST["task_name"];
     $priority = $_POST["priority"];
     $date = $_POST["date"];
-    $time = date("H:i:s");
+    $time = $_POST["time"];
 
     $insert_task = "INSERT INTO task (task,prioritas,tgl_input,waktu_input) VALUES ('$task','$priority','$date','$time')";
     $query = mysqli_query($conn,$insert_task) or die($insert_task);

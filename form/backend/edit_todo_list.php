@@ -9,8 +9,9 @@
     $task = $_POST["task_name"];
     $priority = $_POST["priority"];
     $date = $_POST["date"];
+    $time = $_POST["time"];
 
-    $update_data = "UPDATE task SET task='$task',prioritas='$priority',tgl_input='$date' WHERE id='$id' ";
+    $update_data = "UPDATE task SET task='$task',prioritas='$priority',tgl_input='$date',waktu_input='$time' WHERE id='$id' ";
     $query = mysqli_query($conn,$update_data);
     echo "<script>
         Swal.fire({

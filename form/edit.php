@@ -60,6 +60,10 @@
                         <label for="date">Date : </label>
                         <input type="date" name="date" id="date" class="form-control" name="date" required value="<?= $res["tgl_input"] ?>">
                     </div>
+                    <div class="form-group">
+                        <label for="date">Time : </label>
+                        <input type="time" name="time" id="time" class="form-control" name="date" required value="<?= $res["waktu_input"] ?>">
+                    </div>
                     <div class="submit-btn">
                         <button type="submit" class="btn btn-primary">Save Edit</button>
                     </div>
