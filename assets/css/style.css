@@ -61,8 +61,15 @@ form {
     text-align: center;
 }
 
-thead th {
-    text-align: center;
+.sort {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#task_list_length,
+#task_list_info {
+    text-align: left;
 }
 
 .action {
@@ -72,11 +79,11 @@ thead th {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 a:hover {
-    color: #000;
+    color: #fff;
 }
 
 .two-btn {
@@ -99,4 +106,27 @@ button#finished {
 #submit:hover,
 #save-edit:hover {
     background-color: #293B5F;
+}
+
+select#sorting {
+    width: 20%;
+    margin-left: 20px;
+}
+
+.sort label,
+.sort select#sorting {
+    display: inline;
+}
+
+@media screen and (max-width: 500px) {
+    form {
+        width: 90% !important;
+    }
+    .two-btn {
+        width: 100%;
+        margin: auto;
+    }
+    .all_task_list {
+        overflow-x: auto;
+    }
 }

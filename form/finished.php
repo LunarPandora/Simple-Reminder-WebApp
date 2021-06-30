@@ -11,10 +11,12 @@
     <title>Todo List</title>
 </head>
 <body>
-    <div class="container">
-        <a href="index.php">
+    <header>
+        <a href="../index.php">
             <h1>Finished Todo List</h1>
         </a>
+    </header>
+    <div class="container-fluid">
 
         <div class="all_task_list">
             <table id="task_list" class="table table-striped">

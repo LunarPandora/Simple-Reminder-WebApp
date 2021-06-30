@@ -10,8 +10,10 @@
     <title>Todo List</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Todo List</h1>
+    <header>
+        <h1>To Do List</h1>
+    </header>
+    <div class="container-fluid">
         <div class="row">
             <?php
                     require "../koneksi/connection.php";
@@ -91,7 +93,7 @@
                 cancelButtonText: 'Batal'
             }).then((result)=>{
                 if(result.isConfirmed){
-                    window.location.href = "index.php";
+                    window.location.href = "../index.php";
                 }
             });
         }
