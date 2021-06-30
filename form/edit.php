@@ -33,20 +33,20 @@
                         <label for="priority">Priority : </label>
                         <select class="form-control" id="priority" name="priority" class="priority" required>
                             <?php
-                                if($res["prioritas"] == "High"){
+                                if($res["prioritas"] == "3"){
                             ?>
                                     <option value="High">High</option>
                                     <option value="Medium">Medium</option>
                                     <option value="Low">Low</option>
                             <?php
                                 }
-                                else if($res["prioritas"] == "Medium"){
+                                else if($res["prioritas"] == "2"){
                             ?>
                                     <option value="Medium">Medium</option>
                                     <option value="Low">Low</option>
                                     <option value="High">High</option>
                             <?php
-                                } else if($res['prioritas'] == "Low"){
+                                } else if($res['prioritas'] == "1"){
                             ?>
                                     <option value="Low">Low</option>
                                     <option value="Medium">Medium</option>
@@ -65,7 +65,7 @@
                         <input type="time" name="time" id="time" class="form-control" name="date" required value="<?= $res["waktu_input"] ?>">
                     </div>
                     <div class="submit-btn">
-                        <button type="submit" class="btn btn-primary">Save Edit</button>
+                        <button type="submit" class="btn btn-primary" id="save-edit">Save Edit</button>
                     </div>
 
                     <div class="cancel-btn">

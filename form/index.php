@@ -11,8 +11,10 @@
     <title>Todo List</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Todo List</h1>
+    <header>
+        <h1>To Do List</h1>
+    </header>
+    <div class="container-fluid">
         <div class="row">
             <form action="backend/save_todo_list.php" method="POST">
                 <div class="col-md-12">
@@ -24,9 +26,9 @@
                         <label for="priority">Priority : </label>
                         <select class="form-control" id="priority" name="priority" class="priority" required>
                             <option value="">-- Pilih --</option>
-                            <option value="High">High</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Low">Low</option>
+                            <option value="3">High</option>
+                            <option value="2">Medium</option>
+                            <option value="1">Low</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -37,13 +39,21 @@
                         <label for="date">Time : </label>
                         <input type="time" name="time" id="time" class="form-control" name="date" required>
                     </div>
-                    <div class="submit-btn">
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    </div>
-                    <div class="see-finished">
-                        <a href="finished.php">
-                            <button type="button" class="btn btn-secondary">Finished List</button>
-                        </a>
+                    <div class="two-btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="submit-btn">
+                                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="see-finished">
+                                    <a href="finished.php">
+                                        <button type="button" class="btn btn-danger" id="finished">Finished List</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -72,7 +82,19 @@
                     <tr>
                         <td><?= $res["id"] ?></td>
                         <td><?= $res["task"] ?></td>
-                        <td><?= $res["prioritas"] ?></td>
+                        <td>
+                            <?php
+                                if($res["prioritas"] == "1"){
+                                    echo "Low";       
+                                }
+                                else if($res["prioritas"] == "2"){
+                                    echo "Medium";
+                                }
+                                else if($res["prioritas"] == "3"){
+                                    echo "High";
+                                }
+                            ?>
+                        </td>
                         <td><?= $res["tgl_input"] ?></td>
                         <td><?= $res["waktu_input"] ?></td>
                         <td>

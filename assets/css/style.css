@@ -4,25 +4,37 @@
     box-sizing: border-box;
 }
 
-.container {
-    padding-top: 30px;
+body {
+    background-color: #eeeeee;
 }
 
-.container h1 {
+body header {
+    background-color: #293B5F;
+    text-align: left;
+    color: #fff;
+    padding: 20px;
+    padding-left: 40px;
+}
+
+.container-fluid {
+    padding: 30px;
+}
+
+.container-fluid h1 {
     text-align: center;
 }
 
 form {
-    width: 500px !important;
+    width: 30% !important;
     margin: auto;
     margin-top: 20px;
 }
 
-.container .form-group {
+.container-fluid .form-group {
     margin-bottom: 20px;
 }
 
-.container .form-group label {
+.container-fluid .form-group label {
     font-weight: 500;
     margin-bottom: 10px;
 }
@@ -43,9 +55,14 @@ form {
 }
 
 .all_task_list {
-    width: 800px;
+    width: 80%;
     margin: auto;
     margin-top: 40px;
+    text-align: center;
+}
+
+thead th {
+    text-align: center;
 }
 
 .action {
@@ -62,8 +79,24 @@ a:hover {
     color: #000;
 }
 
-button#submit {
-    margin-top: 20px;
+.two-btn {
+    width: 550px;
+    margin: auto;
+}
+
+button#submit,
+button#finished {
     width: 100%;
     font-size: 18px;
+    border-radius: 20px;
+}
+
+#submit,
+#save-edit {
+    background-color: #293B5F;
+}
+
+#submit:hover,
+#save-edit:hover {
+    background-color: #293B5F;
 }
