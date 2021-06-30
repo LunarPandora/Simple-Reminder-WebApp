@@ -13,7 +13,7 @@
 <body>
     <header>
         <a href="../index.php">
-            <h1>Finished Todo List</h1>
+            <h1>Finished To Do List</h1>
         </a>
     </header>
     <div class="container-fluid">

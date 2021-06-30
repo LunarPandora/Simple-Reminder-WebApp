@@ -18,6 +18,7 @@ body header {
 
 .container-fluid {
     padding: 30px;
+    padding-bottom: 90px;
 }
 
 .container-fluid h1 {
@@ -87,7 +88,6 @@ a:hover {
 }
 
 .two-btn {
-    width: 550px;
     margin: auto;
 }
 
@@ -128,5 +128,10 @@ select#sorting {
     }
     .all_task_list {
         overflow-x: auto;
+    }
+    select#sorting {
+        width: 60%;
+        margin-left: 20px;
+        margin-top: 30px;
     }
 }
