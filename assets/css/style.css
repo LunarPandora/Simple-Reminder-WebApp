@@ -196,8 +196,15 @@ select#sorting {
     margin-top: 40px;
 }
 
-.card-list {
-    animation: ;
+.no-card {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    background-color: #FFF;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px lightgrey;
+    font-style: italic;
 }
 
 @media screen and (max-width: 500px) {

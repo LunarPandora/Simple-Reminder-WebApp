@@ -22,7 +22,8 @@
                 $all_data = "SELECT * FROM finished";
                 $query = mysqli_query($conn,$all_data);
 
-                while($res = mysqli_fetch_array($query)){        
+                if(mysqli_num_rows($query) > 0){
+                    while($res = mysqli_fetch_array($query)){        
             ?>
             <div class="card-list">
                 <div class="task-name">
@@ -49,7 +50,14 @@
             </div>
                 <?php
                     }
-            ?>
+                } else {
+                    ?>
+                    <div class="no-card">
+                        <h3>No Task Finished</h3>
+                    </div>
+                <?php
+                    }
+                ?>
         <div class="back-btn">
             <a href="../index.php">
                 <button class="btn btn-danger" id="back">

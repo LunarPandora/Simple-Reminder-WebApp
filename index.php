@@ -88,6 +88,7 @@
                         $all_data = "SELECT * FROM task";
                         $query = mysqli_query($conn,$all_data);
                         
+                        if(mysqli_num_rows($query) > 0){
                         while($res = mysqli_fetch_array($query)){        
                     ?>
                     <div class="card-list">
@@ -148,6 +149,13 @@
                     </div>
                         <?php
                             }
+                        } else {
+                        ?>
+                            <div class="no-card" style="margin-top: 50px; padding: 15px; width: 40%">
+                                <h4>No Task Available</h4>
+                            </div>
+                        <?php
+                        }
                         ?>
                 </div>
             </div>
