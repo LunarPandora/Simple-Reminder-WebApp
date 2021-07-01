@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #eeeeee;
+    background-color: #ececec;
 }
 
 body header {
@@ -26,7 +26,7 @@ body header {
 }
 
 form {
-    width: 30% !important;
+    width: 40% !important;
     margin: auto;
     margin-top: 20px;
 }
@@ -43,9 +43,9 @@ form {
 .submit-btn,
 .see-finished,
 .cancel-btn {
-    width: 200px;
+    width: 90%;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .submit-btn button[type=submit],
@@ -55,22 +55,10 @@ form {
     font-size: 18px;
 }
 
-.all_task_list {
-    width: 80%;
-    margin: auto;
-    margin-top: 40px;
-    text-align: center;
-}
-
 .sort {
     width: 80%;
     margin: auto;
-    margin-top: 40px;
-}
-
-#task_list_length,
-#task_list_info {
-    text-align: left;
+    margin-top: 50px;
 }
 
 .action {
@@ -92,7 +80,10 @@ a:hover {
 }
 
 button#submit,
-button#finished {
+button#finished,
+button#save-edit,
+button#cancel,
+button#back {
     width: 100%;
     font-size: 18px;
     border-radius: 20px;
@@ -111,11 +102,102 @@ button#finished {
 select#sorting {
     width: 20%;
     margin-left: 20px;
+    border-radius: 13px;
 }
 
 .sort label,
 .sort select#sorting {
     display: inline;
+}
+
+.card-list {
+    /* display: none; */
+    background-color: #293B5F;
+    color: #FFF;
+    width: 80%;
+    margin: auto;
+    border-radius: 13px;
+    margin-top: 30px;
+    animation-name: animate;
+    animation-duration: 1.5s;
+}
+
+@keyframes animate {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.action-btn {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.finished-detail {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding-top: 35px;
+    font-size: larger;
+}
+
+.action-btn button {
+    background-color: transparent;
+    border: none;
+}
+
+.action-btn span {
+    cursor: pointer;
+    padding: 15px
+}
+
+.task-name .col-md-6,
+.prioritas {
+    background-color: #FFF;
+    padding: 20px 20px;
+    padding-left: 30px;
+    color: #000;
+}
+
+.task-name .col-md-6 {
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.prioritas h5 {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.prioritas {
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    text-align: center;
+    padding: 35px;
+}
+
+.back-btn {
+    width: 20%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.card-list {
+    animation: ;
 }
 
 @media screen and (max-width: 500px) {
@@ -126,12 +208,19 @@ select#sorting {
         width: 100%;
         margin: auto;
     }
-    .all_task_list {
-        overflow-x: auto;
+    .card-list {
+        width: 100%;
+    }
+    .sort {
+        width: 100%;
     }
     select#sorting {
         width: 60%;
         margin-left: 20px;
         margin-top: 30px;
+    }
+    .prioritas {
+        text-align: left;
+        border-radius: 0px;
     }
 }
