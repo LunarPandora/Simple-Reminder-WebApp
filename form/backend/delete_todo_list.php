@@ -5,18 +5,50 @@
     require "../../koneksi/connection.php";
 
     $id = $_GET['id'];
+    $delete = $_GET['delete'];
 
-    $delete_task = "DELETE FROM task WHERE id='$id'";
-    $query = mysqli_query($conn,$delete_task);
-    echo "<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Task Deleted',
-        text: 'Task berhasil dihapus !!',
-    }).then((result)=>{
-        if(result.isConfirmed){
-            window.location.href = '../../index.php';
-        }
-    });
-</script>";
+    if($delete == "clear_task_id"){
+        $delete_task = "DELETE FROM task WHERE id='$id'";
+        $query = mysqli_query($conn,$delete_task);
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Task Deleted',
+            text: 'Task berhasil dihapus !!',
+        }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.href = '../../index.php';
+            }
+        });
+    </script>";
+    } else if($delete == "clear_task"){
+        $clear_task = "TRUNCATE task";
+        $query = mysqli_query($conn,$clear_task);
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Task Cleared ! ',
+            text: 'Seluruh task berhasil dihapus',
+        }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.href = '../../index.php';
+            }
+        });
+    </script>";
+    }
+    else if($delete == "clear_finished"){
+        $clear_finished = "TRUNCATE finished";
+        $query = mysqli_query($conn,$clear_finished);
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Finished Task Deleted',
+            text: 'Finished Task berhasil dihapus !!',
+        }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.href = '../finished.php';
+            }
+        });
+    </script>";
+    }
 ?>

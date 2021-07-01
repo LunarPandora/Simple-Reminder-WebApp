@@ -37,22 +37,22 @@
                             <?php
                                 if($res["prioritas"] == "3"){
                             ?>
-                                    <option value="High">High</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Low">Low</option>
+                                    <option value="3">High</option>
+                                    <option value="2">Medium</option>
+                                    <option value="1">Low</option>
                             <?php
                                 }
                                 else if($res["prioritas"] == "2"){
                             ?>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Low">Low</option>
-                                    <option value="High">High</option>
+                                    <option value="2">Medium</option>
+                                    <option value="1">Low</option>
+                                    <option value="3">High</option>
                             <?php
                                 } else if($res['prioritas'] == "1"){
                             ?>
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="High">High</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Medium</option>
+                                    <option value="3">High</option>
                             <?php
                                 }
                             ?>

@@ -207,6 +207,24 @@ select#sorting {
     font-style: italic;
 }
 
+button.clear {
+    background-color: #47597E;
+    padding: 0;
+    width: 50px;
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+button.clear span {
+    color: #FFFFFF;
+    font-size: 25px;
+}
+
+.clear-button {
+    width: 80%;
+    margin: auto;
+}
+
 @media screen and (max-width: 500px) {
     form {
         width: 90% !important;
@@ -229,5 +247,8 @@ select#sorting {
     .prioritas {
         text-align: left;
         border-radius: 0px;
+    }
+    .no-card {
+        width: 90% !important;
     }
 }

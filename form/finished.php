@@ -25,6 +25,11 @@
                 if(mysqli_num_rows($query) > 0){
                     while($res = mysqli_fetch_array($query)){        
             ?>
+        <div class="clear-button">
+            <button class="btn clear" onclick="confirmClear()">
+                <span class="material-icons delete_forever">delete_forever</span>
+            </button>
+        </div>
             <div class="card-list">
                 <div class="task-name">
                     <div class="row">
@@ -74,3 +79,20 @@
     <script type="text/javascript" src="../assets/js/sweetalert2/sweetalert2.min.js"></script>
 </body>
 </html>
+
+<script>
+    function confirmClear(){
+            Swal.fire({
+                icon: 'question',
+                title: 'Clear Task',
+                text: 'Yakin ingin menghapus semua task yang sudah selesai ?',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin',
+                cancelButtonText: 'Batal'
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    window.location.href = "backend/delete_todo_list.php?delete=clear_finished";
+                }
+            });
+        }
+</script>

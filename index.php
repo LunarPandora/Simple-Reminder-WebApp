@@ -78,6 +78,9 @@
                         <option value="date_oldest">Date : Oldest</option>
                         <option value="date_newest">Date : Newest</option>
                     </select>
+                    <button class="btn clear" onclick="confirmClear()">
+                        <span class="material-icons delete_forever">delete_forever</span>
+                    </button>
                 </div>
                 <?php
                     } ?>
@@ -196,7 +199,7 @@
                 cancelButtonText: 'Batal'
             }).then((result)=>{
                 if(result.isConfirmed){
-                    window.location.href = "form/backend/delete_todo_list.php?id="+id;
+                    window.location.href = "form/backend/delete_todo_list.php?id="+id+"&delete=clear_task_id";
                 }
             });
         }
@@ -227,6 +230,21 @@
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "form/backend/finish_todo_list.php?id="+id;
+                }
+            });
+        }
+
+        function confirmClear(){
+            Swal.fire({
+                icon: 'question',
+                title: 'Clear Task',
+                text: 'Yakin ingin menghapus semua Task ?',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin',
+                cancelButtonText: 'Batal'
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    window.location.href = "form/backend/delete_todo_list.php?delete=clear_task";
                 }
             });
         }
