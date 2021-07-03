@@ -3,6 +3,7 @@
 </header>
 
 <?php
+    session_start();
     require "../../koneksi/connection.php";
 
     $id = $_GET["id"];
@@ -10,8 +11,9 @@
     $priority = $_POST["priority"];
     $date = $_POST["date"];
     $time = $_POST["time"];
+    $id_user = $_SESSION["id"];
 
-    $update_data = "UPDATE task SET task='$task',prioritas='$priority',tgl_input='$date',waktu_input='$time' WHERE id='$id' ";
+    $update_data = "UPDATE task SET task='$task',prioritas='$priority',tgl_input='$date',waktu_input='$time' WHERE id='$id' AND id_user='$id_user'";
     $query = mysqli_query($conn,$update_data);
     echo "<script>
         Swal.fire({
@@ -20,7 +22,7 @@
             text: 'Task berhasil diupdate !!',
         }).then((result)=>{
             if(result.isConfirmed){
-                window.location.href = '../../index.php';
+                window.location.href = '../index.php';
             }
         });
     </script>";

@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    if($_SESSION["id"] == "" || $_SESSION["name"] == "" || $_SESSION["username"] == ""){
+        $no_login = "true";
+    }
+
+    $id_user = $_SESSION["id"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +19,37 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>To Do List</title>
+    <script type="text/javascript" src="../assets/js/sweetalert2/sweetalert2.min.js"></script>
 </head>
 <body>
+<?php
+    if($no_login == "true"){
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            text: 'Silahkan login terlebih dahulu !',
+        }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.href = '../index.php';
+            }
+        });
+    </script>";
+    }
+?>
     <header>
-        <h1>To Do List</h1>
+        <div class="row">
+            <div class="col-md-9">
+                <h1>To Do List</h1>
+            </div>
+            <div class="col-md-2">
+                <h4><?= $_SESSION["name"] ?></h4>
+            </div>
+            <div class="col-md-1">
+                <a href="backend/logout.php">
+                    <span class="material-icons logout">logout</span>
+                </a>
+            </div>
+        </div>
     </header>
     <div class="container-fluid">
         <div class="row">
@@ -20,7 +58,7 @@
 
                     $id = $_GET['id'];
 
-                    $get_data = "SELECT * FROM task WHERE id = '$id'";
+                    $get_data = "SELECT * FROM task WHERE id= '$id' AND id_user='$id_user'";
                     $query = mysqli_query($conn,$get_data);
 
                     if ($res = mysqli_fetch_array($query)) {
@@ -100,7 +138,7 @@
                 cancelButtonText: 'Batal'
             }).then((result)=>{
                 if(result.isConfirmed){
-                    window.location.href = "../index.php";
+                    window.location.href = "index.php";
                 }
             });
         }

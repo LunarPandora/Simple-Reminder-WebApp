@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if($_SESSION["id"] == "" || $_SESSION["name"] == "" || $_SESSION["username"] == ""){
+        $no_login = "true";
+    }
+    $id_user = $_SESSION["id"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +17,45 @@
     <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="../assets/js/sweetalert2/sweetalert2.min.js"></script>
     <title>To Do List</title>
 </head>
 <body>
+<?php
+    if($no_login == "true"){
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            text: 'Silahkan login terlebih dahulu !',
+        }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.href = '../index.php';
+            }
+        });
+    </script>";
+    }
+?>
     <header>
-        <a href="../index.php">
-            <h1>Finished To Do List</h1>
-        </a>
+        <div class="row">
+            <div class="col-md-9">
+                <h1>To Do List</h1>
+            </div>
+            <div class="col-md-2">
+                <h4><?= $_SESSION["name"] ?></h4>
+            </div>
+            <div class="col-md-1">
+                <a href="backend/logout.php">
+                    <span class="material-icons logout">logout</span>
+                </a>
+            </div>
+        </div>
     </header>
     <div class="container-fluid">
         <div id="all_task_list">
             <?php 
+                session_start();
                 require "../koneksi/connection.php";
-                $all_data = "SELECT * FROM finished";
+                $all_data = "SELECT * FROM finished WHERE id_user_finished='$id_user'";
                 $query = mysqli_query($conn,$all_data);
 
                 if(mysqli_num_rows($query) > 0){
@@ -64,7 +100,7 @@
                     }
                 ?>
         <div class="back-btn">
-            <a href="../index.php">
+            <a href="index.php">
                 <button class="btn btn-danger" id="back">
                     Back
                 </button>
@@ -76,7 +112,6 @@
     <script type="text/javascript" src="../assets/js/jquery/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../assets/js/jquery/jquery.mask.min.js"></script>
     <script type="text/javascript" src="../assets/js/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../assets/js/sweetalert2/sweetalert2.min.js"></script>
 </body>
 </html>
 

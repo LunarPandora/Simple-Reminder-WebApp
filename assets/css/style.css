@@ -16,6 +16,22 @@ body header {
     padding-left: 40px;
 }
 
+header .row .col-md-2 {
+    text-align: right;
+    padding-right: 00px;
+    padding-top: 10px;
+}
+
+header .row .col-md-1 {
+    text-align: right;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+
+header .row .col-md-1 span {
+    font-size: 30px;
+}
+
 .container-fluid {
     padding: 30px;
     padding-bottom: 90px;

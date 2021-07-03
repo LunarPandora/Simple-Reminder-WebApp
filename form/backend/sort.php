@@ -1,12 +1,13 @@
 <?php
+    session_start();
     require "../../koneksi/connection.php";
+    $id_user = $_SESSION["id"];
 
     $sort = $_POST["sorting"];
     if ($sort == "default") {
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task";
+        $all_data = "SELECT * FROM task WHERE id_user='$id_user'";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
@@ -74,8 +75,7 @@
     } if($sort == "low_to_high"){
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task ORDER BY prioritas ASC";
+         $all_data = "SELECT * FROM task WHERE id_user='$id_user' ORDER BY prioritas ASC";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
@@ -143,8 +143,7 @@
     }else if($sort == "high_to_low"){
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task ORDER BY prioritas DESC";
+         $all_data = "SELECT * FROM task WHERE id_user='$id_user' ORDER BY prioritas DESC";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
@@ -212,8 +211,7 @@
     } else if($sort == "A_Z"){
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task ORDER BY task ASC";
+         $all_data = "SELECT * FROM task WHERE id_user='$id_user' ORDER BY task ASC";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
@@ -281,8 +279,7 @@
     } else if($sort == "Z_A"){
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task ORDER BY task DESC";
+         $all_data = "SELECT * FROM task WHERE id_user='$id_user' ORDER BY task DESC";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
@@ -350,8 +347,7 @@
     } else if($sort == "date_oldest"){
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task ORDER BY tgl_input ASC";
+         $all_data = "SELECT * FROM task WHERE id_user='$id_user' ORDER BY tgl_input ASC";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
@@ -419,8 +415,7 @@
     } else if($sort == "date_newest"){
 ?>
     <?php 
-        require "../../koneksi/connection.php";
-         $all_data = "SELECT * FROM task ORDER BY tgl_input DESC";
+         $all_data = "SELECT * FROM task WHERE id_user='$id_user' ORDER BY tgl_input DESC";
         $query = mysqli_query($conn,$all_data);
             
         while($res = mysqli_fetch_array($query)){        
