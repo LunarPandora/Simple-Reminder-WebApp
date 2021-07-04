@@ -49,6 +49,10 @@
     this.classList.toggle('bi-eye-slash');
 });
 
+    function post(){
+        
+    }
+
     $("#login").click(function(){
         var username = $("#username").val();
         var password = $("#password").val();
@@ -98,4 +102,58 @@
             });
         }
     }); 
+
+    var input = document.getElementById("password");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            if(username == ""){
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Username harus diisi !',
+                }); 
+            }
+            else if(password == ""){
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Password harus diisi !',
+                }); 
+            }
+            else{
+                $.ajax({
+                    type: 'POST',
+                    url: 'form/backend/login_register.php',
+                    data: { 
+                        username: username,
+                        password: password,
+                        type: "login",
+                    },
+                    success:function(response){
+                        var jsonData = JSON.parse(response);
+
+                        if(jsonData.error == "not_found"){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Username Not Found',
+                                text: 'Username tidak ditemukan !',
+                            }); 
+                        }
+                        else if(jsonData.error == "wrong_password"){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Wrong Password',
+                                text: 'Password salah !',
+                            }); 
+                        }
+                        else if(jsonData.success == "login success"){
+                            window.location.href = "form/index.php";
+                        }
+                    }
+                });
+            }
+        }
+    });
 </script>
