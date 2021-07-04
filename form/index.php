@@ -37,16 +37,25 @@
 ?>
     <header>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <h1>To Do List</h1>
             </div>
             <div class="col-md-2">
-                <h4><?= $_SESSION["name"] ?></h4>
-            </div>
-            <div class="col-md-1">
-                <a href="backend/logout.php">
-                    <span class="material-icons logout">logout</span>
-                </a>
+                <h4 class="dropbtn" onclick="dropDown()"><?= $_SESSION["name"] ?></h4>
+                <div id="myDropdown" class="dropdown-content">
+                    <h5>User Profile</h5>
+                    <div class="profile-detail">
+                        <p>User ID : <?=$_SESSION["id"] ?></p>
+                        <p>Username : <?=$_SESSION["username"] ?></p>
+                        <p>Nama : <?=$_SESSION["name"] ?></p>
+                    </div>
+                    <div class="logout-btn">
+                        <a href="backend/logout.php">
+                            <span class="material-icons logout">logout</span>
+                            <span class="logout-text">Logout</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -285,6 +294,23 @@
                 }
             });
         }
+
+    function dropDown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+        }
+    }
+    }
 
     </script>
 </body>
