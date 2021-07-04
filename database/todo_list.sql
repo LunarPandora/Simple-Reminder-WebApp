@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 05:35 AM
+-- Generation Time: Jul 04, 2021 at 02:04 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `finished` (
   `id_finished` int(11) NOT NULL,
+  `id_user_finished` int(11) NOT NULL,
   `task_finished` text NOT NULL,
   `tanggal_mulai` date NOT NULL,
   `waktu_mulai` time NOT NULL,
@@ -45,11 +46,25 @@ CREATE TABLE `finished` (
 
 CREATE TABLE `task` (
   `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `task` text NOT NULL,
   `prioritas` tinyint(4) NOT NULL COMMENT '3 = high, 2 = medium, 1= low',
   `tgl_input` date NOT NULL,
   `waktu_input` time NOT NULL,
   `edited_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -69,6 +84,12 @@ ALTER TABLE `task`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -82,6 +103,12 @@ ALTER TABLE `finished`
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
