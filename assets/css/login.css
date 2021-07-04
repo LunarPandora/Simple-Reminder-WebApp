@@ -55,6 +55,7 @@ body {
 .login-btn button[type=button]:hover {
     background-color: #47597E;
     color: #fff;
+    border: 1px solid #fff;
 }
 
 .login-btn a {
