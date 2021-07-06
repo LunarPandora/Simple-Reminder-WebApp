@@ -28,6 +28,7 @@
         Swal.fire({
             icon: 'error',
             text: 'Silahkan login terlebih dahulu !',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';
@@ -144,7 +145,8 @@
                 text: 'Yakin ingin membatalkan edit ?',
                 showCancelButton: true,
                 confirmButtonText: 'Yakin',
-                cancelButtonText: 'Batal'
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false,
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "index.php";

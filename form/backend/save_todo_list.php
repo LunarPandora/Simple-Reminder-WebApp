@@ -19,6 +19,7 @@
             icon: 'success',
             title: 'Task Added',
             text: 'Task berhasil ditambah !!',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';

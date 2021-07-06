@@ -32,6 +32,7 @@
             icon: 'success',
             title: 'Task Finished',
             text: 'Task telah selesai !',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';

@@ -27,6 +27,7 @@
         Swal.fire({
             icon: 'error',
             text: 'Silahkan login terlebih dahulu !',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';
@@ -60,6 +61,23 @@
         </div>
     </header>
     <div class="container-fluid">
+        <?php
+            require "../koneksi/connection.php";
+            $all_data = "SELECT * FROM finished WHERE id_user_finished='$id_user'";
+            $query = mysqli_query($conn,$all_data);
+
+            if (mysqli_num_rows($query) > 0) {
+                while ($res = mysqli_fetch_array($query)) {
+                    ?>
+        <div class="clear-button">
+            <button class="btn clear" onclick="confirmClear()">
+                <span class="material-icons delete_forever">delete_forever</span>
+            </button>
+        </div>
+        <?php
+                    }
+                }
+        ?>
         <div id="all_task_list">
             <?php 
                 session_start();
@@ -70,11 +88,6 @@
                 if(mysqli_num_rows($query) > 0){
                     while($res = mysqli_fetch_array($query)){        
             ?>
-        <div class="clear-button">
-            <button class="btn clear" onclick="confirmClear()">
-                <span class="material-icons delete_forever">delete_forever</span>
-            </button>
-        </div>
             <div class="card-list">
                 <div class="task-name">
                     <div class="row">
@@ -132,7 +145,8 @@
                 text: 'Yakin ingin menghapus semua task yang sudah selesai ?',
                 showCancelButton: true,
                 confirmButtonText: 'Yakin',
-                cancelButtonText: 'Batal'
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false,
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "backend/delete_todo_list.php?delete=clear_finished";

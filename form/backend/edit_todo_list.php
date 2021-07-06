@@ -20,6 +20,7 @@
             icon: 'success',
             title: 'Task Updated',
             text: 'Task berhasil diupdate !!',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';

@@ -130,6 +130,7 @@ const togglePassword1 = document.querySelector('#togglePassword1');
                             icon: 'error',
                             title: "Username Found",
                             text: 'Username telah dipakai !',
+                            allowOutsideClick: false,
                         });
                     }
                     else if(jsonData.success == "berhasil"){
@@ -137,6 +138,7 @@ const togglePassword1 = document.querySelector('#togglePassword1');
                             icon: 'success',
                             title: 'Registrasi',
                             text: 'Registrasi berhasil dilakukan !',
+                            allowOutsideClick: false,
                         }).then((result)=>{
                             if(result.isConfirmed){
                                 window.location.href = "register.php";

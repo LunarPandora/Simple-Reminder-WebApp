@@ -27,6 +27,7 @@
         Swal.fire({
             icon: 'error',
             text: 'Silahkan login terlebih dahulu !',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';
@@ -242,7 +243,8 @@
                 text: 'Yakin ingin menghapus Task ?',
                 showCancelButton: true,
                 confirmButtonText: 'Yakin',
-                cancelButtonText: 'Batal'
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "backend/delete_todo_list.php?id="+id+"&delete=clear_task_id";
@@ -257,7 +259,8 @@
                 text: 'Ingin mengedit Task ?',
                 showCancelButton: true,
                 confirmButtonText: 'Edit',
-                cancelButtonText: 'Batal'
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false,
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "edit.php?id="+id;
@@ -272,7 +275,8 @@
                 text: 'Task sudah selesai ?',
                 showCancelButton: true,
                 confirmButtonText: 'Selesai',
-                cancelButtonText: 'Batal'
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false,
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "backend/finish_todo_list.php?id="+id;
@@ -287,7 +291,8 @@
                 text: 'Yakin ingin menghapus semua Task ?',
                 showCancelButton: true,
                 confirmButtonText: 'Yakin',
-                cancelButtonText: 'Batal'
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false,
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.href = "backend/delete_todo_list.php?delete=clear_task";

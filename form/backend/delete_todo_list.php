@@ -17,6 +17,7 @@
             icon: 'success',
             title: 'Task Deleted',
             text: 'Task berhasil dihapus !!',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';
@@ -31,6 +32,7 @@
             icon: 'success',
             title: 'Task Cleared ! ',
             text: 'Seluruh task berhasil dihapus',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../index.php';
@@ -46,6 +48,7 @@
             icon: 'success',
             title: 'Finished Task Deleted',
             text: 'Finished Task berhasil dihapus !!',
+            allowOutsideClick: false,
         }).then((result)=>{
             if(result.isConfirmed){
                 window.location.href = '../finished.php';
